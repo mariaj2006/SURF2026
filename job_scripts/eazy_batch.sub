@@ -10,8 +10,11 @@
 # %j will substitute to the job's id
 #now run your executables just like you would in a shell script, Slurm will set the working directory as the directory the job was submitted from. 
 #e.g. if you submitted from /home/username/softwaretesting your job would run in that directory.
+
 module load python
 conda activate eazyenv
+#script to fit all the JADES catalog
+python /home/caltech-msanche3/SURF2026/scripts/eazy_jades_fitting.ipynb
 
  
 #(executables) (options) (parameters)
