@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=eazy_jades_run
-#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --ntasks=16
 #SBATCH --time=0-01:00:00
 #SBATCH -–mail-user=msanche3@caltech.edu
 #SBATCH --mail-type=begin,end,fail,requeue 
@@ -11,6 +12,7 @@
 # %j will substitute to the job's id
 #now run your executables just like you would in a shell script, Slurm will set the working directory as the directory the job was submitted from. 
 #e.g. if you submitted from /home/username/softwaretesting your job would run in that directory.
+#specified 16 cores on one node
 
 module load python
 conda activate eazyenv

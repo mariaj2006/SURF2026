@@ -47,8 +47,8 @@ self = eazy.photoz.PhotoZ(
 self.set_sys_err(positive=True) # should I change this to False?
 
 # 2. Fit the ENTIRE catalog
-# how do I assign cores?
-self.fit_catalog(self_idx)
+
+self.fit_catalog(self.idx, n_proc=16, method='joblib')
 
 
 # Derived parameters (z params, RF colors, masses, SFR, etc.)
