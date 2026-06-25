@@ -1,11 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=eazy_jades_run
 #SBATCH --ntasks=1
-#SBATCH --time=0-00:30:00 
+#SBATCH --time=0-01:00:00
+#SBATCH -–mail-user=msanche3@caltech.edu
 #SBATCH --mail-type=begin,end,fail,requeue 
 #SBATCH --export=all 
-#SBATCH --out=Hellbender-%j.out
-#SBATCH --err=Hellbender-%j.err
+#SBATCH --out=/home/caltech-msanche3/data/jades_eazy_output/Hellbender-%j.out
+#SBATCH --err=/home/caltech-msanche3/err_output/Hellbender-%j.err
  
 # %j will substitute to the job's id
 #now run your executables just like you would in a shell script, Slurm will set the working directory as the directory the job was submitted from. 
@@ -13,8 +14,8 @@
 
 module load python
 conda activate eazyenv
-#script to fit all the JADES catalog
-python /home/caltech-msanche3/SURF2026/scripts/eazy_jades_fitting.ipynb
+# call the script to fit all the JADES catalog
+python /home/caltech-msanche3/SURF2026/scripts/eazy_jades_fitting.py
 
  
 #(executables) (options) (parameters)
