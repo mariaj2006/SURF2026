@@ -2,23 +2,22 @@
 #SBATCH --job-name=eazy_jades_run
 #SBATCH --nodes=1
 #SBATCH --ntasks=16
+#SBATCH --mem=30G
 #SBATCH --time=0-01:00:00
-#SBATCH -–mail-user=msanche3@caltech.edu
+#SBATCH --mail-user=msanche3@caltech.edu
 #SBATCH --mail-type=begin,end,fail,requeue 
 #SBATCH --export=all 
 #SBATCH --out='/home/caltech-msanche3/data/jades_eazy_output/Hellbender-%j.out'
-#SBATCH --err='/home/caltech-msanche3/err_output/Hellbender-%j.err'
+#SBATCH --err='/home/caltech-msanche3/data/err_output/Hellbender-%j.err'
  
 # %j will substitute to the job's id
 #now run your executables just like you would in a shell script, Slurm will set the working directory as the directory the job was submitted from. 
 #e.g. if you submitted from /home/username/softwaretesting your job would run in that directory.
 #specified 16 cores on one node
 
-module load python
-conda activate eazyenv
+module load miniconda3
+source $(conda info --base)/etc/profile.d/conda.sh
+conda activate eazyenv1
+
 # call the script to fit all the JADES catalog
 python /home/caltech-msanche3/SURF2026/scripts/eazy_jades_fitting.py
-
- 
-#(executables) (options) (parameters)
-echo "I've submitted my first batch job successfully"
