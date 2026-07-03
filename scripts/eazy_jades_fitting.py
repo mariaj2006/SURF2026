@@ -16,6 +16,11 @@ cat_name = '/home/caltech-msanche3/data/JADES_fits_data.fits'
 trans_file = '/home/caltech-msanche3/data'
 
 jades_table = Table.read(cat_name, hdu='KRON_CONV',format='fits')
+
+for col in jades_table.colnames:
+    if '_KRON' in col or '_ei' in col:
+        jades_table[col] = jades_table[col] * 0.001
+
 params = {}
 print("Loading parameters...")
 # 1. Tell it where your data is
@@ -23,6 +28,7 @@ params['CATALOG_FILE'] = jades_table
 #params['CATALOG_FORMAT'] = 'fits'
 params['EXT_NUMBER'] = 9
 params['SYS_ERR'] = 0.03
+params['IGM_SCALE_TAU'] = 1.0
 
 # 2. Tell it what templates to use to fit the light
 params['TEMPLATES_FILE'] = "/home/caltech-msanche3/data/miniconda/envs/eazyenv2/lib/python3.13/site-packages/eazy/data/eazy-photoz/templates/spline_templates_v2/tweak_spline.param"
@@ -30,7 +36,7 @@ params['TEMPLATES_FILE'] = "/home/caltech-msanche3/data/miniconda/envs/eazyenv2/
 # 3. Choose a base name for the output files it saves
 # path to jades data output directory
 # ^^ let's not do this for now and just name the file, we can see where it is directed to once code runs
-params['MAIN_OUTPUT_FILE'] = 'jades_run'
+params['MAIN_OUTPUT_FILE'] = 'jades_run_spline_2'
 
 print("Loaded parameters!")
 print('Initializing fitting program...')
