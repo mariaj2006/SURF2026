@@ -1,5 +1,6 @@
 """
 Common functions used in all plots and compute_implied_epsilon.py
+
 """
 
 import numpy
@@ -50,7 +51,8 @@ planck2020_ede=FlatLambdaCDM(H0 = 100*h0_ede, Om0=om0_ede,
 # hmf parameters:
 ######################################################################
 # standard min value to compute mass function (in log10):
-min_mval_log10=7
+# changed from 6 to 7
+min_mval_log10=6
 # min value to compute mass function (in log10) for nu calcs (should be low):
 min_mval_nu_log10=-2
 # max value to compute mass function (in log10) for nu calcs (should be hi):
@@ -100,47 +102,34 @@ zz14=mstar_data['z']
 print(zz14)
 # SCRIPT LOOKS GOOD UP TO THIS POINT
 
-'''
+
 ######################################################################
 
 
 # 4 pi steradians converted to arcmin^2:
 arcmin2_fullsky=(180/pi)**2*4*pi*60**2
-# CEERS area, according to Labbe:
-# NEED TO UPDATE WITH JADES AREA BUT I DONT KNOW WHAT THE JADES AREA IS!!!!
-ceers_arcmin2=38.0
-# volume fraction is ceers area divided full sky volume
-vol_frac=ceers_arcmin2/arcmin2_fullsky
+
+# JADES=GS area
+jades_south_arcmin2=25.6096
+# volume fraction is JADES GS area divided full sky volume
+vol_frac=jades_south_arcmin2/arcmin2_fullsky
+print(vol_frac)
 
 # updated lows and highs to match the binning of our cum data
-zlow_labbe=13.0
+zlow_jades=13.0
 # zmid_labbe=8.5 wont need this one
-zhi_labbe=15.0
+zhi_jades=15.0
 
-# comoving volume between z=8.5 and z=10 in the CEERS area in this cosmology;
-# this is the higher z bin
-# update to z14 notation
-vol_z14=(planck2020_model.comoving_volume(zhi_labbe).value -
-        planck2020_model.comoving_volume(zmid_labbe).value)*vol_frac
-
-# wont need this
-'''
-# comoving volume between z=7 and 8.5 in the CEERS area in this cosmology;
-# this is the lower z bin:
-vol_z8=(planck2020_model.comoving_volume(zmid_labbe).value -
-        planck2020_model.comoving_volume(zlow_labbe).value)*vol_frac
-'''
+# comoving volume between z=13 and z=15 in the JADES GS area in this cosmology;
+# updated to z14 notation
+vol_z14=(planck2020_model.comoving_volume(zhi_jades).value -
+        planck2020_model.comoving_volume(zlow_jades).value)*vol_frac
+print(vol_z14)
 
 # same volumes in EDE:
 # update to z14
-vol_z14_ede=(planck2020_ede.comoving_volume(zhi_labbe).value -
-            planck2020_ede.comoving_volume(zmid_labbe).value)*vol_frac
-
-# wont need this
-'''
-vol_z8_ede=(planck2020_ede.comoving_volume(zmid_labbe).value -
-            planck2020_ede.comoving_volume(zlow_labbe).value)*vol_frac
-'''
+vol_z14_ede=(planck2020_ede.comoving_volume(zhi_jades).value -
+            planck2020_ede.comoving_volume(zlow_jades).value)*vol_frac
 
 
 ######################################################################
@@ -151,7 +140,7 @@ my_mf=hmf.MassFunction(Mmin=min_mval_log10, hmf_model='SMT',
                        transfer_model=hmf.density_field.transfer_models.CAMB,
                        transfer_params={'extrapolate_with_eh':True})
 
-# array of halo masses, for standard parameter inputs
+# array of halo masses, for standard parameter inputs, this is a grid gong from min max log10 mass
 mvals_noh=my_mf.m/h0
 
 
@@ -162,4 +151,3 @@ my_mf_nu=hmf.MassFunction(Mmin=min_mval_nu_log10, Mmax=max_mval_nu_log10,
                           sigma_8=sig8, n=ns,
                           transfer_model=hmf.density_field.transfer_models.CAMB,
                           transfer_params={'extrapolate_with_eh':True})
-'''
