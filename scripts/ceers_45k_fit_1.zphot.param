@@ -1,0 +1,89 @@
+VERBOSITY                 1.0
+FILTERS_RES               FILTER.RES.latest
+FILTER_FORMAT             1.0
+SMOOTH_FILTERS            n
+SMOOTH_SIGMA              100.0
+TEMPLATES_FILE            /mnt/pixstor/data/caltech-msanche3/miniconda/envs/eazyenv2/lib/python3.13/site-packages/eazy/data/eazy-photoz/templates/hot-templates/fsps-hot/45k/fsps_45k.param
+TEMPLATE_COMBOS           a
+NMF_TOLERANCE             0.0001
+WAVELENGTH_FILE           templates/uvista_nmf/lambda.def
+TEMP_ERR_FILE             templates/uvista_nmf/template_error_10.def
+TEMP_ERR_A2               0.2
+SYS_ERR                   0.03
+APPLY_IGM                 y
+IGM_SCALE_TAU             1.0
+ADD_CGM                   y
+SIGMOID_PARAM1            3.5918
+SIGMOID_PARAM2            1.8414
+SIGMOID_PARAM3            18.001
+FITTER                    nnls
+RENORM_TEMPLATES          y
+HESS_THRESHOLD            1.0
+SCALE_2175_BUMP           0.0
+TEMPLATE_SMOOTH           0.0
+RESAMPLE_WAVE             None
+MW_EBV                    0.0
+CAT_HAS_EXTCORR           y
+DUMP_TEMPLATE_CACHE       n
+USE_TEMPLATE_CACHE        n
+CACHE_FILE                photz.tempfilt
+CATALOG_FILE              NUMBER  X_IMAGE   Y_IMAGE      RA    ...      CI_SFR_ERR     CI_EBV CI_EBV_ERR
+------ --------- --------- --------- ... ------------------- ------ ----------
+     1 16884.225  445.4987  215.0458 ... 0.27231532344955434    0.0        0.0
+     2 16833.646  456.3304 215.04616 ...  0.3920358532508807  0.025      0.025
+     3 17366.754  470.3468 215.04123 ... 0.19198930410065082    0.1        0.1
+     4 17548.605  479.7205  215.0395 ... 0.29612419409375673  0.075      0.075
+     5 16779.822  480.2032 215.04639 ...   0.259912098476144    0.0        0.0
+     7 16668.633  482.7719 215.04735 ...  0.4253529937011475   0.05       0.05
+     8 16900.734  516.0936 215.04492 ... 0.20483031096291948    0.1        0.1
+     9 17110.979  521.8927 215.04298 ...  0.3568069768776773    0.2        0.2
+    10 16540.812  479.5151 215.04854 ...  1.0843161890831514    0.2        0.2
+    11 17208.768   528.556 215.04204 ... 0.24996427978404984  0.025      0.025
+   ...       ...       ...       ... ...                 ...    ...        ...
+ 99465 31151.479 12085.001  214.7959 ... 0.30311145617455615    0.3        0.3
+ 99466 8116.8843 12121.898 215.00165 ...               -99.0  -99.0      -99.0
+ 99467  18601.43  12142.72 214.90742 ...   0.302712846413625    0.2        0.2
+ 99468 11721.185 12101.146 214.96951 ...  0.3477221966653206    0.2        0.2
+ 99469 14286.047  12019.72 214.94737 ...  0.3652490442232837    0.0        0.0
+ 99470 10921.367 12042.056 214.97731 ... 0.28783038258767424    0.0        0.0
+ 99471  33966.81 12079.111 214.77087 ...  0.5138592595043304    0.2        0.2
+ 99472 16695.598 12032.163 214.92566 ...  0.2760693390637805    0.1        0.1
+ 99473   5622.23 11415.194  215.0315 ...  0.2387909882959603    0.1        0.1
+ 99474 16368.217 11856.774 214.93044 ... 0.22346477227232645    0.1        0.1
+Length = 87345 rows
+CATALOG_FORMAT            ascii.commented_header
+MAGNITUDES                n
+NOT_OBS_THRESHOLD         -90.0
+N_MIN_COLORS              5.0
+ARRAY_NBITS               32.0
+OUTPUT_DIRECTORY          OUTPUT
+MAIN_OUTPUT_FILE          ceers_45k_fit_1
+PRINT_ERRORS              y
+CHI2_SCALE                1.0
+VERBOSE_LOG               y
+OBS_SED_FILE              n
+TEMP_SED_FILE             n
+POFZ_FILE                 n
+BINARY_OUTPUT             y
+APPLY_PRIOR               y
+PRIOR_FILE                templates/prior_F160W_TAO.dat
+PRIOR_FILTER              205.0
+PRIOR_ABZP                25.0
+PRIOR_FLOOR               0.01
+FIX_ZSPEC                 n
+Z_MIN                     8
+Z_MAX                     13
+Z_STEP                    0.01
+Z_STEP_TYPE               1.0
+GET_ZP_OFFSETS            n
+ZP_OFFSET_TOL             0.0001
+REST_FILTERS              ---
+RF_PADDING                1000.0
+RF_ERRORS                 n
+Z_COLUMN                  z_peak
+USE_ZSPEC_FOR_REST        y
+READ_ZBIN                 n
+H0                        70.0
+OMEGA_M                   0.3
+OMEGA_L                   0.7
+EXT_NUMBER                9
