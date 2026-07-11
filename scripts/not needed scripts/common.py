@@ -124,7 +124,8 @@ zhi_jades=15.0
 # updated to z14 notation
 vol_z14=(planck2020_model.comoving_volume(zhi_jades).value -
         planck2020_model.comoving_volume(zlow_jades).value)*vol_frac
-print(vol_z14)
+print('vol:',vol_z14)
+
 
 # same volumes in EDE:
 # update to z14
