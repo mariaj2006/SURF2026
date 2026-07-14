@@ -71,8 +71,8 @@ PRIOR_FILTER              205.0
 PRIOR_ABZP                25.0
 PRIOR_FLOOR               0.01
 FIX_ZSPEC                 n
-Z_MIN                     8
-Z_MAX                     13
+Z_MIN                     6
+Z_MAX                     14
 Z_STEP                    0.01
 Z_STEP_TYPE               1.0
 GET_ZP_OFFSETS            n
